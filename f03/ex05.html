@@ -8,26 +8,35 @@
 </head>
 
 <body>
-    <form>
+    <form action="ex05.html">
         <label for="txtGameName">Nome</label>
-        <input id="txtGameName" type="text" required><br>
+        <input name="txtGameName" id="txtGameName" type="text" required>
+        <br>
+
         <label for="txtGameYear">Ano</label>
-        <input id="txtGameYear" type="number" required><br>
+        <input name="txtGameYear" id="txtGameYear" type="number" required>
+        <br>
+
         <label for="sltGameGenre">Género</label>
-        <select id="sltGameGenre">
+        <select name="sltGameGenre" id="sltGameGenre">
             <option value="acao">Ação</option>
             <option value="aventura">Aventura</option>
             <option value="desporto">Desporto</option>
             <option value="estrategia">Estratégia</option>
             <option value="simulacao">Simulação</option>
-        </select><br>
+        </select>
+        <br>
+
         <label for="txtGameCover">Capa</label>
-        <input id="txtGameCover" type="url"><br>
+        <input name="txtGameCover" id="txtGameCover" type="url">
+        <br>
 
         <input type="submit" value="Adicionar" />
         <input type="reset" value="Limpar" />
     </form>
+
     <hr />
+
     <table>
         <tr>
             <th>Nome</th>
@@ -39,7 +48,6 @@
     </table>
 
     <script src="ex5.js"></script>
-
 </body>
 
 </html>

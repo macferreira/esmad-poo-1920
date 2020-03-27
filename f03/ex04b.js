@@ -1,10 +1,10 @@
-const myTextbox = document.querySelector('input[type="text"]');
+const myTextBox = document.querySelector('input[type="text"]');
 const myP = document.querySelector('p');
-myTextbox.addEventListener('input', function () {
-    myP.innerHTML = myTextbox.value;
+myTextBox.addEventListener('input', function () {
+    myP.innerHTML = myTextBox.value;
 });
 
 const myButton = document.querySelector('input[type="button"]')
 myButton.addEventListener('click', function () {
-    alert(myTextbox.value.length);
+    alert(myTextBox.value.length);
 });

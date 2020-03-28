@@ -14,18 +14,20 @@ frmGame.addEventListener('submit', function (event) {
         const gameGenre = document.querySelector('#sltGameGenre').value;
         const gameCover = document.querySelector('#urlGameCover').value;
 
-        table.innerHTML += `
+        let line = document.createElement("tr");
+        line.innerHTML = `
             <tr>
                 <td>${gameName}</td>
                 <td>${gameYear}</td>
                 <td>${gameGenre}</td>
                 <td><img src="${gameCover}"></td>
-                <td><input type="button" id="${gameName}-${gameYear}" value="x"></td>
+                <td><input type="button" value="x"></td>
             </tr>
         `;
 
-        buttonX = document.getElementById(`${gameName}-${gameYear}`);
+        table.append(line);
 
+        buttonX = line.getElementsByTagName('input')[0];
         buttonX.addEventListener('click', function () {
             this.parentNode.parentNode.remove();
         });

@@ -14,7 +14,7 @@ frmGame.addEventListener('submit', function (event) {
         const gameGenre = document.querySelector('#sltGameGenre').value;
         const gameCover = document.querySelector('#urlGameCover').value;
 
-        let line = document.createElement("tr");
+        let line = document.createElement('tr');
         line.innerHTML = `
             <tr>
                 <td>${gameName}</td>

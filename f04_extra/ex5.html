@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA 04 - ARRAYS - EX5</title>
+</head>
+
+<body>
+
+    Nome: <input type="text" name="" id="txtName"><br>
+    Ano: <input type="number" name="" id="txtYear"><br>
+    <input type="button" value="ADICIONAR JOGO" id="btnAddGame">
+
+
+    <script>
+        // 5a) Criar array
+        const games = [
+            { name: 'Rick Dangerous', year: 1989 },
+            { name: 'Goblins', year: 1992 },
+            { name: 'Golden Axe', year: 1989 }
+        ]
+
+        // 5b) Exibir na consola informação sobre os jogos
+        for (const game of games) {
+            console.log(`Nome: ${game.name} / Ano: ${game.year}`);
+        }
+
+        // 5c) Exibir na consola o número de jogos existentes
+        console.log(games.length);
+
+        // 5d e 5e) Adicionar jogo (já com validação)
+        document.querySelector("#btnAddGame").addEventListener("click", addGame)
+
+        function addGame() {
+            const txtName = document.querySelector("#txtName").value
+            const txtYear = +document.querySelector("#txtYear").value
+            if (!games.some(game => game.name === txtName)) {
+                const newGame = { name: txtName, year: txtYear }
+                games.push(newGame)
+                console.log(games);
+            } else {
+                alert("JOGO JÁ EXISTENTE!")
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

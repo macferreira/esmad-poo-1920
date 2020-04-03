@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA 04 - ARRAYS - EX1</title>
+</head>
+
+<body>
+    <script>
+        // 1a) Criar array
+        const countries = ["Portugal", "Espanha", "França"]
+
+        // 1b) Imprimir 1º elemento
+        alert(countries[0])
+
+        // 1c) Imprimir último elemento        
+        alert(countries[2])
+        alert(countries[countries.length - 1])
+
+        // 1d) Adicionar novo elemento
+        countries[3] = "Alemaha"
+        countries[countries.length] = "Alemaha"
+
+        // 1e) Alterar elemento
+        countries[3] = "Alemanha"
+        countries[countries.length] = "Alemanha"
+        
+        // 1f) Imprimir caixa de alerta personalizada
+        alert(`O array tem ${countries.length} países!`)
+
+        // 1g) Criar novo array
+        let countries2
+
+        // 1h) Igualar novo array a um existente
+        countries2 = countries
+
+        // 1i) Adicionar novo elemento
+        countries2.push("Dinamarca")
+
+        // 1j) Analisar array original (estando as duas variáveis a apontar para o mesmo array, qualquer alteração reflete-se em ambas as variáveis)
+        alert(countries)
+
+        // 1k) Iterar array
+        for (let i = 0; i < countries.length; i++) {
+            console.log(`${i + 1} - ${countries[i]}\n`);
+        }
+
+        // 1k) Iterar array (usando ciclo for..of)
+        let pos = 1
+        for (const country of countries) {
+            console.log(`${pos} - ${country}\n`);
+            pos++
+        }
+    </script>
+</body>
+
+</html>

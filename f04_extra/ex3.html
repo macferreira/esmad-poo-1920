@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA 04 - ARRAYS - EX3</title>
+</head>
+
+<body>
+
+    <script>
+        // 3a) Criar array
+        const grades = [4, 12, 16, 11, 8]
+
+        // 3b) Imprimir primeira nota positiva
+        const firstPositiveGrade = grades.find(grade => grade >= 10)
+        alert(firstPositiveGrade)
+
+        // 3c) Obter todas as notas positivas
+        function getPositiveGrades() {
+            return grades.filter(grade => grade >= 10)
+        }
+        alert(getPositiveGrades())
+
+        // 3d) Verificar se existem negativas
+        function checkDisapprovals() {
+            return grades.some(grade => grade < 10)
+        }
+        alert(checkDisapprovals())
+
+        // 3e) Validar notas
+        function validateGrades() {
+            return grades.every(grade => grade >= 0 && grade <= 20)
+        }
+        alert(validateGrades())
+
+
+    </script>
+</body>
+
+</html>

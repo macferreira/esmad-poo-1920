@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA 04 - ARRAYS - EX4</title>
+</head>
+
+<body>
+
+    <script>
+        // 3a) Criar array
+        const ages = [1, 9, 41, 75, 44, 73]
+
+        // 3b) Criar array com idades daqui a 5 anos
+        const fiveYearsFromNowAges = ages.map(age => age * 5)
+        alert(fiveYearsFromNowAges)
+
+        // 3c) Somar todas as idades
+        const total = ages.reduce(
+            (accumulator, currentValue) => accumulator + currentValue
+        )
+        console.log(total)
+
+        // 3d) Calcular a média de todas as idades
+        const average = ages.reduce((a, b) => (a + b)) / ages.length;
+        console.log(average)
+
+        // 3e) Transformar array com as idades inferiores a 18 transformadas em “-” e as restantes inalteradas
+        const adults = ages.map(age => {
+            if (age < 18) {
+                return "-"
+            }
+            return age
+        });
+        console.log(adults)
+
+        // 3f) Ordenar as idades
+        alert(ages.sort()) //ordena lexicograficamente!
+
+        function compareNumeric(a, b) {
+            if(a > b) return 1;
+            if(a < b) return -1;
+            else return 0
+        }
+        alert(ages.sort(compareNumeric))
+
+        // 3g) Inverter array
+        const inverseOrderedAges = ages.reverse() 
+        alert(inverseOrderedAges)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICHA 04 - ARRAYS - EX2</title>
+</head>
+
+<body>
+
+    <input type="text" name="" id="txtName">
+    <input type="button" value="ADICIONAR NOME" id="btnAdd">
+
+
+
+    <script>
+        // 2a) Criar array
+        const names = []
+
+        // 2b) Adicionar listener ao botão
+        document.querySelector("#btnAdd").addEventListener("click", function () {
+            const txtName = document.querySelector("#txtName").value
+            names.push(txtName)
+            console.log(names);
+        })
+
+        // 2d) Extraia o último nome do array e exiba-o numa caixa de alerta 
+        alert(names.pop())
+
+        // 2e) Extraia o último nome do array e exiba-o numa caixa de alerta 
+        alert(names.shift())
+
+        // 2f) Criar novo array 
+        const names2 = ["Ricardo", "Maria"]
+
+        // 2g) Juntar arrays 
+        const allNames = names.concat(names2)
+        console.log(allNames);
+
+        // 2h) Juntar arrays (via spread) 
+        const allNames = [...names, ...names2]
+        console.log(allNames);
+
+        // 2i) Adicionar listener ao botão (com validação)
+        document.querySelector("#btnAdd").addEventListener("click", function () {
+            const txtName = document.querySelector("#txtName").value
+            if (!names.includes(txtName)) {
+                names.push(txtName)
+                console.log(names);    
+            } else {
+                alert("Nome já existente!")
+            }
+            
+            
+        })
+
+    </script>
+</body>
+
+</html>

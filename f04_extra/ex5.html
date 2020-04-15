@@ -13,6 +13,8 @@
     Ano: <input type="number" name="" id="txtYear"><br>
     <input type="button" value="ADICIONAR JOGO" id="btnAddGame">
 
+    <!-- 5g) Botão remover jogo -->
+    <br><input type="button" value="REMOVER JOGO" id="btnRmGame">
 
     <script>
         // 5a) Criar array
@@ -31,7 +33,7 @@
         console.log(games.length);
 
         // 5d e 5e) Adicionar jogo (já com validação)
-        document.querySelector("#btnAddGame").addEventListener("click", addGame)
+        document.querySelector("#btnAddGame").addEventListener("click", addGame);
 
         function addGame() {
             const txtName = document.querySelector("#txtName").value
@@ -43,10 +45,56 @@
             } else {
                 alert("JOGO JÁ EXISTENTE!")
             }
-
         }
 
+        // 5f) Calcular e devolver a média do ano de lançamento dos jogos existentes
+        function averageLaunchDate(games) {
+            let sumYears = games.reduce((sum, current) => sum + current.year, 0);
+            let averageLaunchDate = sumYears / games.length;
 
+            return averageLaunchDate;
+        }
+
+        alert(averageLaunchDate(games));
+
+        // 5g) Remover jogo
+        document.querySelector("#btnRmGame").addEventListener("click", removeGame);
+        function removeGame() {
+            const txtName = document.querySelector("#txtName").value;
+            if (games.some(game => game.name === txtName)) {
+                for (i = 0; i < games.length; i++) {
+                    if (games[i].name === txtName) {
+                        delete games[i];
+                        console.log(`Removido jogo ${txtName}`);
+                        break;
+                    }
+                }
+            } else {
+                alert("JOGO INEXISTENTE!");
+            }
+        }
+
+        // 5h) Retornar os nomes dos jogos lançados na década de 90
+        function gamesFrom90(games) {
+            let gamesFrom90Array = [];
+            for (const game of games) {
+                if (game.year >= 1990 && game.year < 2000) {
+                    gamesFrom90Array.push(game.name);
+                }
+            }
+
+            return gamesFrom90Array;
+        }
+
+        alert(gamesFrom90(games));
+
+        // 5i) Devolver uma string com todos os nomes dos jogos em minúsculas e sem espaços
+        function concatenateGameNames(games) {
+            const mapArray = games.map(x => x.name.toLowerCase().split(' ').join(''));
+            return mapArray;
+        }
+
+        alert(concatenateGameNames(games));
 
     </script>
 </body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ex07</title>
+</head>
+
+<body>
+    <h1>VIDEOTECA</h1>
+
+    <!-- Formulário para adição de filme -->
+    <form>
+        <label for="txtTitle">TITULO:</label>
+        <input id="txtTitle" type="text" required /><br />
+
+        <label for="sltGenre">GÉNERO:</label>
+        <select id="sltGenre">
+            <option value="aventura">AVENTURA</option>
+            <option value="acao">AÇÃO</option>
+            <option value="comedia">COMÉDIA</option>
+            <option value="terror">TERROR</option>
+            <option value="romance">ROMANCE</option>
+            <option value="thriller">THRILLER</option>
+            <option value="outro">OUTRO</option>
+        </select>
+        <br>
+
+        <label for="txtYear">ANO:</label>
+        <input id="txtYear" type="number" min="1900" max="" required />
+        <br>
+        <label for="txtCover">CAPA:</label>
+        <input id="txtCover" ype="url"
+            value="https://i.pinimg.com/originals/66/25/b4/6625b41f5b0f64766b161ddfa0fe0db7.jpg" required />
+        <br>
+        <label for="txtTrailer">TRAILER:</label>
+        <input id="txtTrailer" type="url" value="https://www.youtube.com/embed/tgbNymZ7vqY" />
+        <br /><br />
+        <input type="submit" value="ADICIONAR" />
+        <input type="reset" value="REPOR" />
+    </form>
+    <hr>
+
+    <!-- Tabela para listagem dos filmes -->
+    <table></table>
+
+    <!-- Janela modal para mostrar a capa -->
+    <dialog id="dlgCover">
+        <img id="imgCover" src="" alt="" />
+        <br>
+        <button id="btnCloseCoverDialog">FECHAR</button>
+    </dialog>
+
+    <!--Janela modal para mostrar trailer-->
+    <dialog id="dlgTrailer">
+        <iframe
+            id="ifrTrailer"
+            width="640"
+            height="360"
+            src=""
+        ></iframe>
+        <br>
+        <button id="btnCloseTrailerDialog">FECHAR</button>
+    </dialog>
+
+    <script src="ex07.js"></script>
+</body>
+
+</html>

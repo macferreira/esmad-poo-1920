@@ -3,8 +3,8 @@
  */
 class Rectangle {
     constructor(width = 2, height = 1) {
-        this.width = width;
-        this.height = height;
+        this._width = width;
+        this._height = height;
         this._color = "#FFFFFF";
     }
 

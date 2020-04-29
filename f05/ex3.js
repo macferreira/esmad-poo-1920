@@ -42,7 +42,7 @@ const table = document.querySelector("table");
 
 table.innerHTML += `
         <tr>
-            <td>Frequência</td>
+            <td>Frequency</td>
             <td>${frequencyTable[0]}</td>
             <td>${frequencyTable[1]}</td>
             <td>${frequencyTable[2]}</td>

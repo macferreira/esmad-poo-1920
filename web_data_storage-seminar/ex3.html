@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex3</title>
+</head>
+
+<body>
+    nome: <input id="txtName" type="text"><br>
+    filme: <input id="txtMovie" type="text"><br>
+    pontuação: <input id="txtScore" type="text"><br>
+    <button>ADD</button>
+
+    <script>
+        const btnAdd = document.querySelector('button');
+
+        btnAdd.addEventListener('click', function () {
+            const txtName = document.querySelector('#txtName');
+            const txtMovie = document.querySelector('#txtMovie');
+            const txtScore = document.querySelector('#txtScore');
+
+            let myMovies = [];
+
+            if (localStorage.getItem(txtName.value)) {
+                myMovies = JSON.parse(localStorage.getItem(txtName.value));
+            }
+
+            myMovies.push(
+                {
+                    movie: txtMovie.value,
+                    score: txtScore.value
+                }
+            );
+
+            localStorage.setItem(txtName.value,
+                JSON.stringify(myMovies)
+            );
+        });
+    </script>
+</body>
+
+</html>

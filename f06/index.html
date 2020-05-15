@@ -106,6 +106,31 @@
             <div class="container">
                 <h1 class="display-3">Bands Catalog</h1>
                 <p class="lead">The best bands of the world!</p>
+                <hr class="my-2" />
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="sltGenre">Genre: </label>
+                        <select class="form-control m-2" name="" id="sltGenre">
+                            <option value="">All</option>
+                            <option value="Pop-Rock">Pop-Rock</option>
+                            <option value="Metal">Metal</option>
+                            <option value="Jazz">Jazz</option>
+                        </select>
+                    </div>
+                    <div class="form-group m-2">
+                        <label for="txtBand">Band's name:</label>
+                        <input id="txtBand" type="text" class="form-control m-2" />
+                    </div>
+                    <button id="btnFilter" type="button" class="btn btn-primary">
+                        FILTER
+                    </button>
+                    <button id="btnSort" type="button" class="btn btn-primary m-2">
+                        SORT
+                    </button>
+                </form>
+                <hr class="my-2" />
+                <p id="myCatalog"></p>
             </div>
         </div>
     </div>

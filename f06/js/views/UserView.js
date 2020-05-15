@@ -55,6 +55,7 @@ export default class UserView {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
                 this.displayLoginMessage('User logged in with success!', 'success');
                 this.updateButtons('login');
+                location.reload()
             } catch(e) {
                 this.displayLoginMessage(e, 'danger');
             }
@@ -65,6 +66,7 @@ export default class UserView {
         this.logoutButton.addEventListener('click', event => {
             this.userController.logoutUser();
             this.updateButtons('logout');
+            location.reload()
         });
     }
 
@@ -89,14 +91,18 @@ export default class UserView {
     updateButtons(event) {
         switch(event) {
             case 'login':
-                this.loginButton.setAttribute('Disabled', '');
+                this.loginButton.style.visibility = 'hidden'
+                this.registerButton.style.visibility = 'hidden'
+                this.logoutButton.style.visibility = 'visible'
+                
+               /* this.loginButton.setAttribute('Disabled', '');                
                 this.registerButton.setAttribute('Disabled', '');
-                this.logoutButton.removeAttribute('Disabled', '');
+                this.logoutButton.removeAttribute('Disabled', ''); */ 
                 break;
             case 'logout':
-                this.loginButton.removeAttribute('Disabled', '');
-                this.registerButton.removeAttribute('Disabled', '');
-                this.logoutButton.setAttribute('Disabled', '');                
+                this.loginButton.style.visibility = 'visible'
+                this.registerButton.style.visibility = 'visible'
+                this.logoutButton.style.visibility = 'hidden'
         }
     }
 }

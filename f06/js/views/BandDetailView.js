@@ -4,24 +4,30 @@ export default class BandDetailView {
 
     constructor() {
         this.bandController = new BandController()
+
+        // DOM References
+        this.bandName = document.querySelector('#bandName')
+        this.bandGenre = document.querySelector('#bandGenre')
+        this.bandDescription = document.querySelector('#bandDescription')
+        this.bandPhoto = document.querySelector('#bandPhoto')
+        this.btnBack = document.querySelector("#btnBack")
+
+        this.fillBandData()
         this.bindBackButton()
     }
 
     bindBackButton() {
-        document.querySelector("#btnBack").addEventListener('click', () => {
-            location.href="../index.html"
+        this.btnBack.addEventListener('click', () => {
+            history.back();
         })
     }
 
     fillBandData() {
         const currentBand = this.bandController.getCurrentBand()
-        document.querySelector('#bandName').innerHTML = currentBand.name
-        document.querySelector('#bandGenre').innerHTML = currentBand.genre
-        document.querySelector('#bandDescription').innerHTML = currentBand.description
-        document.querySelector('#bandPhoto').src = currentBand.photo
+        this.bandName.innerHTML = currentBand.name
+        this.bandGenre.innerHTML = currentBand.genre
+        this.bandDescription.innerHTML = currentBand.description
+        this.bandPhoto.src = currentBand.photo
     } 
 
 }
-
-const b = new BandDetailView()
-b.fillBandData()

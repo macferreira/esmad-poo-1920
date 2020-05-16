@@ -1,9 +1,8 @@
-import UserView from './views/UserView.js'
-import CatalogView from './views/CatalogView.js'
-import BandDetailView from './views/BandDetailView.js'
+import Routes from './routes.js'
 
 class App {
     constructor() {
+        this.routes = new Routes();
         this._instantiateViews()
 
         // To Be Removed: Temporarly adding dummy data
@@ -21,22 +20,14 @@ class App {
     _instantiateViews() {
         const path = window.location.pathname
         const file = path.substr(path.lastIndexOf('/') + 1);
-        
-        switch (file) {
-            case 'index.html':
-                new UserView();
-                new CatalogView();
-                break;
-            case 'band.html':
-                new BandDetailView();
-                break;
+        const route = file.split('.')[0];
 
-            default:
-                break;
+        const views = this.routes.getViews(route);
+
+        for (const view of views) {
+            new view();
         }
     }
-
-
 }
 
 new App(); 

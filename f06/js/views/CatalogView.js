@@ -23,19 +23,19 @@ export default class BandView {
     }
 
     bindAddFilterEvent() {
-        this.btnFilter.addEventListener('click', event => {            
+        this.btnFilter.addEventListener('click', () => {            
             this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value))
         })
     }
 
     bindAddSortEvent() {
-        this.btnSort.addEventListener('click', event => {
+        this.btnSort.addEventListener('click', () => {
             this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value, true))
         })
     }
 
     bindAddAddEvent() {
-        this.btnAdd.addEventListener('click', event => {
+        this.btnAdd.addEventListener('click', () => {
             location.href="html/addBand.html";
         })
     }

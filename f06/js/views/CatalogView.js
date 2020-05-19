@@ -12,17 +12,14 @@ export default class BandView {
         this.catalog = document.querySelector("#myCatalog")
         this.btnFilter = document.querySelector("#btnFilter")
         this.btnSort = document.querySelector("#btnSort")
+        this.btnAdd = document.querySelector("#btnAdd")
         this.txtBand = document.querySelector("#txtBand")
         this.sltGenre = document.querySelector("#sltGenre")
 
         this.renderCatalog(this.bandController.getBands())
         this.bindAddFilterEvent()
         this.bindAddSortEvent()
-        
-
-        
-
-
+        this.bindAddAddEvent()
     }
 
     bindAddFilterEvent() {
@@ -34,6 +31,12 @@ export default class BandView {
     bindAddSortEvent() {
         this.btnSort.addEventListener('click', event => {
             this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value, true))
+        })
+    }
+
+    bindAddAddEvent() {
+        this.btnAdd.addEventListener('click', event => {
+            location.href="html/addBand.html";
         })
     }
 
@@ -55,9 +58,6 @@ export default class BandView {
         }
     }
 
-
-
-
     renderCatalog(bands = []) {
         let result = ''
         let i=0
@@ -72,7 +72,6 @@ export default class BandView {
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
-
     }
 
 
@@ -96,10 +95,5 @@ export default class BandView {
         </div>        
         `
         return html
-
     }
-
-
-
-
 }

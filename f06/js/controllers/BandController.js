@@ -5,6 +5,20 @@ export default class BandController {
         this.bandModel = new BandModel()
     }
 
+    addBand(name, genre, photo, description, video) {
+        if (!this.bandModel.getAll().some(band => band.name === name)) {
+            this.bandModel.create(
+                name,
+                genre,
+                photo,
+                description,
+                video
+            );
+        } else {
+            throw Error(`Band with name "${name}" already exists!`);
+        }
+    }
+
     removeBand(name) {
         this.bandModel.remove(name)
     }

@@ -42,7 +42,7 @@ export default class UserView {
                 this.userController.createUser(this.registerUsername.value, this.registerPassword.value);
                 this.displayRegisterMessage('User registered with success!', 'success');
             } catch(e) {
-                c
+                this.displayRegisterMessage(e, 'danger');
             }
         });
     }

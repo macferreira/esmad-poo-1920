@@ -6,7 +6,6 @@ export default class BandModel {
     getAll() {
         return this.bands;
     }
-
     
     create(name, genre, photo, description, video) {
         const band = {
@@ -34,13 +33,11 @@ export default class BandModel {
         return this.bands.find(band => band.id === +localStorage.band)
     }
 
-
     remove(name) {
         this.bands = this.bands.filter(band => band.name != name)
         this._persist()
     }
    
-
     _persist() {
         localStorage.setItem('bands', JSON.stringify(this.bands));
     }

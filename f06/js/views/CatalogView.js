@@ -7,33 +7,35 @@ export default class BandView {
         this.bandController = new BandController()
         this.userController = new UserController()
         
-
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
         this.btnFilter = document.querySelector("#btnFilter")
         this.btnSort = document.querySelector("#btnSort")
+        this.btnAdd = document.querySelector("#btnAdd")
         this.txtBand = document.querySelector("#txtBand")
         this.sltGenre = document.querySelector("#sltGenre")
 
         this.renderCatalog(this.bandController.getBands())
         this.bindAddFilterEvent()
         this.bindAddSortEvent()
-        
-
-        
-
-
+        this.bindAddAddEvent()
     }
 
     bindAddFilterEvent() {
-        this.btnFilter.addEventListener('click', event => {            
+        this.btnFilter.addEventListener('click', () => {            
             this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value))
         })
     }
 
     bindAddSortEvent() {
-        this.btnSort.addEventListener('click', event => {
+        this.btnSort.addEventListener('click', () => {
             this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value, true))
+        })
+    }
+
+    bindAddAddEvent() {
+        this.btnAdd.addEventListener('click', () => {
+            location.href='html/addBand.html';
         })
     }
 
@@ -50,13 +52,10 @@ export default class BandView {
         for (const btnSee of document.getElementsByClassName("see")) {
             btnSee.addEventListener('click', event => {
                 this.bandController.setCurrentBand(event.target.id)  
-                location.href="html/band.html"
+                location.href='html/band.html';
             })
         }
     }
-
-
-
 
     renderCatalog(bands = []) {
         let result = ''
@@ -69,12 +68,11 @@ export default class BandView {
         }
 
         this.catalog.innerHTML = result
+        this._renderAddBandButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
-
     }
-
 
     _generateBandCard(band) {
         let html = `
@@ -96,10 +94,13 @@ export default class BandView {
         </div>        
         `
         return html
-
     }
 
-
-
-
+    _renderAddBandButton(userIsLogged) {
+        if(userIsLogged) {
+            this.btnAdd.style.visibility = 'visible';
+        } else {
+            this.btnAdd.style.visibility = 'hidden';
+        }
+    }
 }

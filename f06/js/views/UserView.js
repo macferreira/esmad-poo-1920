@@ -54,8 +54,14 @@ export default class UserView {
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
                 this.displayLoginMessage('User logged in with success!', 'success');
-                this.updateButtons('login');
-                location.reload()
+
+                // Wait 1 second before reloading, so the user can see the login success message
+                setTimeout(() => {
+                    this.updateButtons('login');
+                    location.reload()
+                },
+                1000);
+
             } catch(e) {
                 this.displayLoginMessage(e, 'danger');
             }
@@ -94,10 +100,6 @@ export default class UserView {
                 this.loginButton.style.visibility = 'hidden'
                 this.registerButton.style.visibility = 'hidden'
                 this.logoutButton.style.visibility = 'visible'
-                
-               /* this.loginButton.setAttribute('Disabled', '');                
-                this.registerButton.setAttribute('Disabled', '');
-                this.logoutButton.removeAttribute('Disabled', ''); */ 
                 break;
             case 'logout':
                 this.loginButton.style.visibility = 'visible'

@@ -1,16 +1,24 @@
-import UserView from './views/UserView.js';
-import CatalogView from './views/CatalogView.js';
+import UserView from './views/UserView.js'
+import CatalogView from './views/CatalogView.js'
 import BandDetailView from './views/BandDetailView.js'
+import BandAddView from './views/BandAddView.js'
 
 class App {
     constructor() {
         this.routes = {
+            '': [
+                UserView,
+                CatalogView
+            ],
             'index': [
                 UserView,
                 CatalogView
             ],
             'band': [
                 BandDetailView
+            ],
+            'addBand': [
+                BandAddView
             ]
         };
 
@@ -60,7 +68,7 @@ class App {
                 name: 'James',
                 genre: 'Pop-Rock',
                 photo: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/01/2012JamesBandPress181212-2.jpg',
-                decription: 'The best band ever',
+                description: 'The best band ever',
                 video: 'https://www.youtube.com/watch?v=BlucfrfxAUc'
             },
             {

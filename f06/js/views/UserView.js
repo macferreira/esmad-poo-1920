@@ -100,10 +100,6 @@ export default class UserView {
                 this.loginButton.style.visibility = 'hidden'
                 this.registerButton.style.visibility = 'hidden'
                 this.logoutButton.style.visibility = 'visible'
-                
-               /* this.loginButton.setAttribute('Disabled', '');                
-                this.registerButton.setAttribute('Disabled', '');
-                this.logoutButton.removeAttribute('Disabled', ''); */ 
                 break;
             case 'logout':
                 this.loginButton.style.visibility = 'visible'

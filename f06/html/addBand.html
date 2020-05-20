@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMusic</title>
+    <title>MyMusic - Add Band</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -13,45 +13,54 @@
 <body>
     <div class="container-fluid">
         <div class="jumbotron">
-            <h1 class="display-3">New band</h1>
-            <p class="lead">Add a band that you enjoy!</p>
-            <hr class="my-2">
-            <div>
-                <form id="frmAddBand">
-                    <div class="form-group">
-                        <label for="txtName">Name</label>
-                        <input type="text" class="form-control" id="txtName" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-sm-3">
-                            <label for="sltGenre">Genre</label>
-                            <select class="form-control" id="sltGenre">
-                                <option value="Jazz">Jazz</option>
-                                <option value="Metal">Metal</option>
-                                <option value="Pop-Rock">Pop-Rock</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtPhoto">Photo link</label>
-                        <input type="url" class="form-control" id="txtPhoto" required>
-                    </div>                    
-                    <div class="form-group">
-                        <label for="txtDescription">Description</label>
-                        <textarea class="form-control" id="txtDescription" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtVideo">Video Clip link</label>
-                        <input type="url" class="form-control" id="txtVideo">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                </form>
+            <div id="userLoggedOutContent">
+                <div class="alert alert-danger" role="alert">You must be authenticated to access this area!</div>
             </div>
-            <br>
-            <div id="addBandMessage"></div>
+            
+            <div id="userLoggedInContent" style="visibility: hidden">
+                <h1 class="display-3">Add band</h1>
+                <p class="lead">Add a band that you enjoy!</p>
+                <hr class="my-2">
+                <div>
+                    <form id="frmAddBand">
+                        <div class="form-group">
+                            <label for="txtName">Name</label>
+                            <input type="text" class="form-control" id="txtName" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-3">
+                                <label for="sltGenre">Genre</label>
+                                <select class="form-control" id="sltGenre">
+                                    <option value="Jazz">Jazz</option>
+                                    <option value="Metal">Metal</option>
+                                    <option value="Pop-Rock">Pop-Rock</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPhoto">Photo link</label>
+                            <input type="url" class="form-control" id="txtPhoto" required>
+                        </div>                    
+                        <div class="form-group">
+                            <label for="txtDescription">Description</label>
+                            <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtVideo">Video Clip link</label>
+                            <input type="url" class="form-control" id="txtVideo">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </form>
+                </div>
+                <br>
+                <div id="addBandMessage"></div>
+            </div>
+
         </div>
     </div>
+
+    
 
 
     <!-- Optional JavaScript -->

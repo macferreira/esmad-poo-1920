@@ -7,7 +7,6 @@ export default class BandView {
         this.bandController = new BandController()
         this.userController = new UserController()
         
-
         // Catalog
         this.catalog = document.querySelector("#myCatalog")
         this.btnFilter = document.querySelector("#btnFilter")
@@ -36,7 +35,7 @@ export default class BandView {
 
     bindAddAddEvent() {
         this.btnAdd.addEventListener('click', () => {
-            location.href="html/addBand.html";
+            location.href='html/addBand.html';
         })
     }
 
@@ -53,7 +52,7 @@ export default class BandView {
         for (const btnSee of document.getElementsByClassName("see")) {
             btnSee.addEventListener('click', event => {
                 this.bandController.setCurrentBand(event.target.id)  
-                location.href="html/band.html"
+                location.href='html/band.html';
             })
         }
     }
@@ -69,11 +68,11 @@ export default class BandView {
         }
 
         this.catalog.innerHTML = result
+        this._renderAddBandButton(this.userController.checkLoginStatus());
 
         this.bindAddRemoveEvent()
         this.bindAddSeeMoreEvent()
     }
-
 
     _generateBandCard(band) {
         let html = `
@@ -95,5 +94,13 @@ export default class BandView {
         </div>        
         `
         return html
+    }
+
+    _renderAddBandButton(userIsLogged) {
+        if(userIsLogged) {
+            this.btnAdd.style.visibility = 'visible';
+        } else {
+            this.btnAdd.style.visibility = 'hidden';
+        }
     }
 }

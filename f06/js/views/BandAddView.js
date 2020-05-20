@@ -1,10 +1,14 @@
 import BandController from '../controllers/BandController.js'
+import UserController from '../controllers/UserController.js'
 
 export default class BandAddView {
     constructor(){
         this.bandController = new BandController();
+        this.userController = new UserController();
 
         // add band DOM
+        this.userLoggedOutContent = document.getElementById('userLoggedOutContent');
+        this.userLoggedInContent = document.getElementById('userLoggedInContent');
         this.addBandForm = document.getElementById('frmAddBand');
         this.bandName = document.getElementById('txtName');
         this.bandGenre = document.getElementById('sltGenre');
@@ -13,7 +17,18 @@ export default class BandAddView {
         this.bandVideo = document.getElementById('txtVideo');
         this.addBandMessage = document.getElementById('addBandMessage');
 
+        this.renderAddBandForm(this.userController.checkLoginStatus());
         this.bindAddAddBandForm();
+    }
+
+    renderAddBandForm(userIsLogged) {
+        if(userIsLogged) {
+            this.userLoggedOutContent.style.visibility = 'hidden';
+            this.userLoggedInContent.style.visibility = 'visible';
+        } else {
+            this.userLoggedOutContent.style.visibility = 'visible';
+            this.userLoggedInContent.style.visibility = 'hidden';
+        }
     }
 
     bindAddAddBandForm() {

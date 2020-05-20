@@ -1,7 +1,7 @@
-import UserView from './views/UserView.js';
-import CatalogView from './views/CatalogView.js';
-import BandDetailView from './views/BandDetailView.js';
-import BandAddView from './views/BandAddView.js';
+import UserView from './views/UserView.js'
+import CatalogView from './views/CatalogView.js'
+import BandDetailView from './views/BandDetailView.js'
+import BandAddView from './views/BandAddView.js'
 
 class App {
     constructor() {

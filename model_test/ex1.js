@@ -16,6 +16,6 @@ do {
 
 do {
     num2 = +prompt('Digite o segundo número')
-} while (num2 < 1 || num2 > 99);
+} while (num2 < 1 || num2 > 99 || num2 <= num1);
 
 console.log(`O resultado final é de ${getNums(num1, num2)}`)
